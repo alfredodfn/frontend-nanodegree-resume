@@ -27,12 +27,7 @@ bio.display = function() {
     var formatedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
     var formatedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
     var formatedWelcMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-    $("#topContacts").append(formatedMobile)
-        .append(formatedEmail)
-        .append(formatedGithub)
-        .append(formatedTwitter)
-        .append(formatedLocation);
-    $("#footerContacts").append(formatedMobile)
+    $("#topContacts, #footerContacts").append(formatedMobile)
         .append(formatedEmail)
         .append(formatedGithub)
         .append(formatedTwitter)
@@ -53,7 +48,7 @@ var education = {
             "location": "Santa Maria, RS",
             "degree": "Mestrado",
             "majors": ["Ciência da Computação"],
-            "dates": 2015,
+            "dates": "2013 - 2015",
             "url": "http://www.ufsm.br"
         },
         {
@@ -61,14 +56,14 @@ var education = {
             "location": "Santa Maria, RS",
             "degree": "Tecnólogo",
             "majors": ["Redes de Computadores"],
-            "dates": 2013,
+            "dates": "2010 - 2013",
             "url": "http://www.ufsm.br"
         }
     ],
     "onlineCourses": [{
         "title": "Introdução à Programação",
         "school": "Udacity",
-        "dates": 2017,
+        "dates": "2017",
         "url": "https://br.udacity.com/course/intro-to-programming-nanodegree--nd000"
     }]
 };
@@ -184,7 +179,7 @@ projects.display = function() {
 
 /* Receives two names and returns internationalized version of a name */
 function inName(name) {
-    names = name.split(" ");
+    var names = name.split(" ");
     names[0] = names[0][0].toUpperCase() + names[0].slice(1).toLowerCase();
     names[1] = names[1].toUpperCase();
     return names.join(" ");
